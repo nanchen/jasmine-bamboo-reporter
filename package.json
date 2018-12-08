@@ -1,7 +1,7 @@
 {
-  "name": "jasmine-bamboo-reporter",
-  "version": "0.0.2",
-  "description": "A reporter for Jasmine which produces a report compatible with Atlassian Bamboo Mocha Test Parser.",
+  "name": "jasmine-bamboo-reporter-nolock",
+  "version": "0.0.1",
+  "description": "A reporter for Jasmine (without lock, to be run in a single thread) which produces a report compatible with Atlassian Bamboo Mocha Test Parser.",
   "main": "index.js",
   "keywords": [
     "JSON",
@@ -15,28 +15,24 @@
     "eslint": "eslint *.js"
   },
   "author": {
-    "name": "Alexandru Badiu",
-    "email": "andu@ctrlz.ro",
-    "url": "http://alexandrubadiu.ro"
+    "name": "Nan Chen",
+    "email": "mnanchen@gmail.com"
   },
-  "homepage": "https://github.com/voidberg/jasmine-bamboo-reporter",
+  "homepage": "https://github.com/nanchen/jasmine-bamboo-reporter-nolock",
   "repository": {
     "type": "git",
-    "url": "https://github.com/voidberg/jasmine-bamboo-reporter"
+    "url": "https://github.com/nanchen/jasmine-bamboo-reporter-nolock"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/voidberg/jasmine-bamboo-reporter/issues"
+    "url": "https://github.com/nanchen/jasmine-bamboo-reporter-nolock/issues"
   },
   "readmeFilename": "README.md",
-  "dependencies": {
-    "fs": "0.0.2",
-    "lockfile": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^1.5.1",
+    "eslint": "^5.9.0",
     "eslint-config-airbnb": "^0.1.0",
-    "sleep": "^3.0.1",
-    "jasmine": "^2.4.1"
+    "jasmine": "^2.4.1",
+    "sleep": "^3.0.1"
   }
 }

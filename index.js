@@ -1,6 +1,4 @@
 var fs = require('fs');
-var lockFile = require('lockfile');
-
 
 function format(result) {
   var formatted = '';
@@ -135,33 +133,16 @@ Reporter.prototype.jasmineDone = function jasmineDone() {
 
   self.output.stats.end = new global.Date();
 
-
-  lockFile.lock(lockname, {wait: 2000}, function postLock(er) {
-    if (er) {
-      /* eslint-disable no-console */
-      console.error('Jasmine bamboo reporter unable to acquire a file lock for ' + lockname);
-      /* eslint-enable no-console */
-      return;
-    }
-    // we can ensure that no other process will update the results causing a write-afte-read hazard.
-
-    if (fs.existsSync(self.options.file)) {
-      raw = fs.readFileSync(self.options.file, {encoding: 'utf8'});
-      previous = JSON.parse(raw);
-      self.mergeOutput(previous);
-    }
-    self.output.stats.duration = Math.floor((self.output.stats.end.getTime() - self.output.stats.start.getTime()) / 1000);
-    self.output.stats.time = self.output.stats.duration;
-    resultsOutput = self.options.beautify ? JSON.stringify(self.output, null, self.options.indentationLevel) : JSON.stringify(self.output);
-    fs.writeFileSync(self.options.file, resultsOutput);
-    lockFile.unlock(lockname, function postUnlock(erUnlock) {
-      if (erUnlock) {
-        /* eslint-disable no-console */
-        console.error('Jasmine bamboo reporter could not unlock file ' + lockname);
-        /* eslint-enable no-console */
-      }
-    });
-  });
+  // This should run in a single-thread environment as lock is removed.
+  if (fs.existsSync(self.options.file)) {
+    raw = fs.readFileSync(self.options.file, {encoding: 'utf8'});
+    previous = JSON.parse(raw);
+    self.mergeOutput(previous);
+  }
+  self.output.stats.duration = Math.floor((self.output.stats.end.getTime() - self.output.stats.start.getTime()) / 1000);
+  self.output.stats.time = self.output.stats.duration;
+  resultsOutput = self.options.beautify ? JSON.stringify(self.output, null, self.options.indentationLevel) : JSON.stringify(self.output);
+  fs.writeFileSync(self.options.file, resultsOutput);
 };
 
 module.exports = Reporter;
