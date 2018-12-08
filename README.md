@@ -29,8 +29,7 @@ jasmine.getEnv().addReporter(new JSONReporter({
 ### Protractor/Jasmine Usage
 ```javascript
 // in Protractor conf
-var JSONReporter = require('jasmine-bamboo-nolock');
-var fs = require('fs');
+var JSONReporter = require('jasmine-bamboo-reporter-nolock');
 
 exports.config = {
 
