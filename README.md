@@ -4,7 +4,7 @@
 
 > A reporter for Jasmine which produces a report compatible with Atlassian Bamboo Mocha Test Parser. (forked from https://github.com/voidberg/jasmine-bamboo-reporter) This package does NOT support "'test sharding' or multiple instances of Jasmine running via Protractor" claimed by https://github.com/voidberg/jasmine-bamboo-reporter as the lock mechanism has been removed.
 
-I had no luck to have the forked package running in my environment, it just always created a lock file, but not the report. As my requirement is to run the tests in a single thread, I just removed the locking mechanism and it then worked well for my purpose. Hope this package can help others in the same situation.
+I had no luck to have the package https://github.com/voidberg/jasmine-bamboo-reporter running in my environment, it just always creates a lock file, but not the report. As my requirement is to run the tests in a single thread, I just removed the locking mechanism and it then worked well for my purpose. Hope this package can help others in the same situation.
 
 ## Installation
 
