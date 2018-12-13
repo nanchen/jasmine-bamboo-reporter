@@ -1,6 +1,6 @@
 {
   "name": "jasmine-bamboo-reporter-nolock",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A reporter for Jasmine (without lock, to be run in a single thread) which produces a report compatible with Atlassian Bamboo Mocha Test Parser.",
   "main": "index.js",
   "keywords": [
